@@ -47,6 +47,7 @@ The gamma exposure depends on gamma, a measure indicating the potential delta-he
 
 <br/>
 Two key states are described based on gamma exposure:
+<br/>
 
 **Long Gamma**: Market makers are net buyers of options, providing liquidity during market rallies and absorbing it during drops. This contributes to reduced volatility.
 
