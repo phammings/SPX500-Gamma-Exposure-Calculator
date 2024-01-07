@@ -20,7 +20,7 @@ echo "saved_plots contents cleared."
 # Run main.py
 echo "Creating Absolute Gamma Exposure and Gamma Profile Charts..."
 python main.py &
-main_pid=$!  # Assign the process ID to $main_pid
+main_pid=$!
 saved_plots_dir="saved_plots"
 last_modified_file="last_modified.txt"
 
@@ -30,19 +30,24 @@ while true; do
 
     if [ -f "$new_image" ] && [ "$new_image" != "$last_modified" ]; then
         echo "Opening new image: $new_image"
-        start "" "$new_image"
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+            open "$new_image"
+        elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+            if command -v xdg-open > /dev/null; then
+                xdg-open "$new_image"
+            fi
+        elif [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" ]]; then
+            start "" "$new_image"
+        fi
         echo "$new_image" > "../last_modified.txt"
     fi
 
-    # Check if main.py has finished
     if ! ps -p $main_pid > /dev/null; then
-        break  # Break out of the loop if main.py has finished
+        break
     fi
 
-    sleep 1
+    read -t 3
 done
 
 echo "Successfully created Absolute Gamma Exposure and Gamma Profile Charts!"
-sleep 3
 echo "Closing gammaCalculator.sh..."
-sleep 3
