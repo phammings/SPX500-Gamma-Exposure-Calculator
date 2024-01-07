@@ -108,13 +108,12 @@ This project emphasizes the importance of recognizing and understanding gamma ex
 <!-- INSTRUCTIONS -->
 ## Instructions
 
-- For Windows:
-  - Git clone this repository ```git clone https://github.com/phammings/SPX500-Gamma-Exposure-Calculator.git```
-  - run ```gammaCalculator.sh``` to generate 3 charts:
-    - Absolute Gamma Exposure by dollars chart
-    - Absolute Gamma Exposure by calls/puts chart
-    - Gamma Profile Exposure chart
-      - Note: it may take up to 5 minutes for the script to generate the Gamma Profile Chart
+- Git clone this repository ```git clone https://github.com/phammings/SPX500-Gamma-Exposure-Calculator.git```
+- run ```gammaCalculator.sh``` to generate 3 charts:
+  - Absolute Gamma Exposure by dollars chart
+  - Absolute Gamma Exposure by calls/puts chart
+  - Gamma Profile Exposure chart
+    - Note: it may take up to 5 minutes for the script to generate the Gamma Profile Chart
 
     
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
