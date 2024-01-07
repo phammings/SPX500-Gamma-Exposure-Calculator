@@ -1,3 +1,5 @@
+import time
+
 import pandas as pd
 import numpy as np
 import scipy
@@ -97,6 +99,7 @@ plt.axvline(x=spotPrice, color='r', lw=1, label="SPX Spot: " + str("{:,.0f}".for
 plt.legend()
 filename = f'../saved_plots/AbsoluteGammaExposure-{current_date}.png'
 plt.savefig(filename)
+time.sleep(5)
 
 # Chart 2: Absolute Gamma Exposure by Calls and Puts
 plt.grid()
