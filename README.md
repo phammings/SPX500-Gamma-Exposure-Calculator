@@ -107,13 +107,48 @@ This project emphasizes the importance of recognizing and understanding gamma ex
 
 <!-- INSTRUCTIONS -->
 ## Instructions
+### Prerequisites
+1. Python Installation
 
-- Git clone this repository ```git clone https://github.com/phammings/SPX500-Gamma-Exposure-Calculator.git```
-- run ```gammaCalculator.sh``` to generate 3 charts:
-  - Absolute Gamma Exposure by dollars chart
-  - Absolute Gamma Exposure by calls/puts chart
-  - Gamma Profile Exposure chart
-    - Note: it may take up to 5 minutes for the script to generate the Gamma Profile Chart
+   - Ensure Python 3.8 or higher is installed on your system. You can download it from Python's official website.
+   
+
+2. Required Libraries
+
+   - Install the following Python libraries to ensure the project runs smoothly:
+   ```bash
+   pip install pandas numpy scipy matplotlib selenium
+   ```
+   - ``pandas`` and ``numpy``: For data manipulation and analysis.
+   - ``scipy``: Required for statistical calculations.
+   - ``matplotlib``: Used to generate charts.
+   - ``selenium``: Used for web automation.
+   
+
+3. ChromeDriver Setup
+
+- Download the latest ChromeDriver that matches your Chrome browser version from [ChromeDriver](https://googlechromelabs.github.io/chrome-for-testing/#stable]][https://googlechromelabs.github.io/chrome-for-testing/#stable) for Testing.
+- Place the downloaded ``chromedriver.exe`` file in your ``Program Files`` folder, or add its path to your system's PATH environment variable.
+
+### Clone Repository and Run
+1. Clone this repository
+
+```bash
+git clone https://github.com/phammings/SPX500-Gamma-Exposure-Calculator.git
+```
+
+
+2. Run the Gamma Calculator Script
+
+- Execute the following script to generate three charts:
+```bash
+gammaCalculator.sh
+```
+- The script will generate:
+  - Absolute Gamma Exposure by Dollars Chart
+  - Absolute Gamma Exposure by Calls/Puts Chart
+  - Gamma Profile Exposure Chart
+    - Note: The Gamma Profile Chart may take up to 5 minutes to generate.
 
     
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -129,7 +164,7 @@ Gamma Exposure code calculations used from https://perfiliev.co.uk/market-commen
 [Python-url]: https://www.python.org/
 [Selenium]: https://img.shields.io/badge/-selenium-%43B02A?style=for-the-badge&logo=selenium&logoColor=white
 [Selenium-url]: https://www.selenium.dev/
-[Matplotlib]: https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black
+[Matplotlib]: https://img.shields.io/badge/Matplotlib-%23FF0000.svg?style=for-the-badge&logo=Matplotlib&logoColor=black
 [Matplotlib-url]: https://matplotlib.org/
 [Scipy]: https://img.shields.io/badge/SciPy-%230C55A5.svg?style=for-the-badge&logo=scipy&logoColor=%white
 [Scipy-url]: https://scipy.org/
