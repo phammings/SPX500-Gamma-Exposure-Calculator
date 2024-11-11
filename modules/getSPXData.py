@@ -24,6 +24,10 @@ try:
     WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, '/html/body/main/section[1]/div/div/div/div/div[2]/div[2]/div[2]/div[2]/div[5]/div/div[2]')))
     WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, '/html/body/main/section[1]/div/div/div/div/div[2]/div[2]/div[2]/div[2]/div[3]/div/div[2]')))
 
+    cookies_reject_btn = driver.find_element(By.XPATH, '/html/body/div[3]/div/div/div/div[2]/button[2]')
+    cookies_reject_btn.click()
+    time.sleep(2)
+
     # Select "All" for expiration
     expiration_select = driver.find_element(By.XPATH, '/html/body/main/section[1]/div/div/div/div/div[2]/div[2]/div[2]/div[2]/div[5]/div/div[2]')
     expiration_select.click()
@@ -48,10 +52,10 @@ try:
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
     # Wait for the download button to be clickable
-    WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.XPATH, '/html/body/main/section[1]/div/div/div/div/div[2]/div[2]/div[3]/div[58]/a')))
+    WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.XPATH, '/html/body/main/section[1]/div/div/div/div/div[2]/div[2]/div[3]/div[60]/a')))
 
     # Click the download button
-    download_button = driver.find_element(By.XPATH, '/html/body/main/section[1]/div/div/div/div/div[2]/div[2]/div[3]/div[58]/a')
+    download_button = driver.find_element(By.XPATH, '/html/body/main/section[1]/div/div/div/div/div[2]/div[2]/div[3]/div[60]/a')
     driver.execute_script("arguments[0].click();", download_button)
     time.sleep(2)
 
