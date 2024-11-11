@@ -84,10 +84,12 @@ df['CallGEX'] = df['CallGamma'] * df['CallOpenInt'] * 100 * spotPrice * spotPric
 df['PutGEX'] = df['PutGamma'] * df['PutOpenInt'] * 100 * spotPrice * spotPrice * 0.01 * -1
 
 df['TotalGamma'] = (df.CallGEX + df.PutGEX) / 10**9
-dfAgg = df.groupby(['StrikePrice']).sum()
+dfAgg = df.groupby(['StrikePrice']).sum(numeric_only=True)
+
 strikes = dfAgg.index.values
 
 # Chart 1: Absolute Gamma Exposure
+fig, ax = plt.subplots(figsize=(14, 8))
 plt.grid()
 plt.bar(strikes, dfAgg['TotalGamma'].to_numpy(), width=6, linewidth=0.1, edgecolor='k', label="Gamma Exposure")
 plt.xlim([fromStrike, toStrike])
@@ -102,6 +104,7 @@ plt.savefig(filename)
 time.sleep(5)
 
 # Chart 2: Absolute Gamma Exposure by Calls and Puts
+fig, ax = plt.subplots(figsize=(14, 8))
 plt.grid()
 plt.bar(strikes, dfAgg['CallGEX'].to_numpy() / 10**9, width=6, linewidth=0.1, edgecolor='k', label="Call Gamma")
 plt.bar(strikes, dfAgg['PutGEX'].to_numpy() / 10**9, width=6, linewidth=0.1, edgecolor='k', label="Put Gamma")
@@ -160,13 +163,11 @@ posGamma = totalGamma[zeroCrossIdx+1]
 negStrike = levels[zeroCrossIdx]
 posStrike = levels[zeroCrossIdx+1]
 
-# Writing and sharing this code is only possible with your support!
-# If you find it useful, consider supporting us at perfiliev.com/support :)
 zeroGamma = posStrike - ((posStrike - negStrike) * posGamma/(posGamma-negGamma))
 zeroGamma = zeroGamma[0]
 
 # Chart 3: Gamma Exposure Profile
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(12, 8))
 plt.grid()
 plt.plot(levels, totalGamma, label="All Expiries")
 plt.plot(levels, totalGammaExNext, label="Ex-Next Expiry")
@@ -185,3 +186,4 @@ plt.fill_between([zeroGamma, toStrike], min(totalGamma), max(totalGamma), faceco
 plt.legend()
 filename = f'../saved_plots/GammaExposureProfile-{current_date}.png'
 plt.savefig(filename)
+plt.show()
